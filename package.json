@@ -10,7 +10,7 @@
   },
   "scripts": {
     "deploy": "gcloud app deploy",
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "lint": "samples lint",
     "pretest": "npm run lint",
     "system-test": "samples test app",
@@ -18,8 +18,13 @@
     "e2e-test": "samples test deploy"
   },
   "dependencies": {
+    "Q": "^1.0.0",
+    "body-parser": "^1.18.2",
     "express": "4.15.4",
-    "nodemon": "^1.12.1"
+    "jade": "^1.11.0",
+    "mysql": "^2.14.1",
+    "nodemon": "^1.12.1",
+    "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "1.4.17"

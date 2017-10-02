@@ -1,0 +1,87 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title Restaraunt Page
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet')
+        link(href='css/main.css', rel='stylesheet')
+        style.
+            .nav-wrapper {
+                font-family: "Open Sans Condensed", sans-serif;
+            }
+            .container {
+                margin-top: 50px;
+            }
+            .nav-wrapper a {
+                width: 100%;
+                text-align: center;
+            }
+            nav {
+                margin-bottom: 30px;
+            }
+    body
+        .container
+            nav
+                .nav-wrapper.blue
+                    a.brand-logo(href='#') Order Food Right Now!
+            .center-text
+                h2.center Fill the from and order the food right now!!!
+            .row
+                form.col.s12
+                    .row
+                        .input-field.col.s6
+                            input#first_name.validate(type='text')
+                            label(for='first_name') First Name
+                        .input-field.col.s6
+                            input#last_name.validate(type='text')
+                            label(for='last_name') Last Name
+                    .row
+                        .input-field.col.s6
+                            input#disabled.validate(type='text')
+                            label(for='disabled') City
+                        .input-field.col.s6
+                            input#password.validate(type='password')
+                            label(for='password') Postal Code
+                    .row
+                        .input-field.col.s6
+                            input#disabled.validate(type='text')
+                            label(for='disabled') Phone Number
+                        .input-field.col.s6
+                            select.province_select
+                                option(value='', disabled='', selected='') Choose your option
+
+                                //Displaying provinces
+                                each item in items
+                                    option(value=item.province_shortcut) #{item.province_name}
+                            label Province
+                    .row
+                        .input-field.col.s6
+                            select(multiple='')
+                                option(value='', disabled='', selected='') Choose your option
+                                each combo in combos
+                                    option(value=combo.combo_id) #{combo.combo_name}
+                            label Food and Drinks
+                        .col.s6
+                            p.col.s6
+                                input#pickup.with-gap(name='group1', type='radio')
+                                label(for='pickup') Pickup
+                            p.col.s6
+                                input#delivery.with-gap(name='group1', type='radio')
+                                label(for='delivery') Delivery
+                    .row
+                        .input-field.col.s12
+                            textarea#textarea1.materialize-textarea
+                            label(for='textarea1') Order Comments
+                    .row
+                        .col.s3
+                            button#submit_order.btn Submit Order
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
+        script.
+            $(document).ready(function () {
+                $('select').material_select();
+            });
+            $("#submit_order").on("click", function (e) {
+                e.preventDefault();
+            });
